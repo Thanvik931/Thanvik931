@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sama Thanvik Reddy - Portfolio</title>
+  <!-- Modern Font: Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <!-- Custom 3D Cursor -->
+  <div id="custom-cursor"></div>
+  <div id="cursor-trail"></div>
+
+  <!-- 3D Background Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <header>
+    <nav class="glass-nav">
+      <div class="logo">Sama<span>Thanvik</span></div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#interests">Interests</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark/Light Mode">
+        <!-- Sun / Moon SVG logic handled via JS or CSS classes -->
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <div class="greeting">Hello, I am</div>
+        <h1 class="glitch">Sama <span class="highlight">Thanvik Reddy</span></h1>
+        <p class="subtitle">B.Tech Student @ KL University | IEEE Student | Open Source Contributor | Developer</p>
+        <div class="cta-buttons">
+          <a href="#about" class="btn primary">Explore My World</a>
+          <a href="#projects" class="btn secondary">View Projects</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section fade-in">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-grid grid">
+        <div class="about-text glass card" id="about-card"
+          style="cursor: pointer; display: flex; flex-direction: column; justify-content: center;">
+          <p>I am a second-year B.Tech student at KL University with a strong interest in innovation, technology, and
+            software development.</p>
+          <div id="about-extra" class="hidden-content">
+            <p style="margin-top: 1rem;">I am passionate about exploring new ideas, building practical solutions, and
+              continuously improving my technical knowledge through academic learning, project development, and open
+              source contributions.</p>
+            <p style="margin-top: 1rem;">Through my academic journey, I have worked on several projects that helped me
+              develop practical knowledge in software development, AI concepts, and full-stack applications. I am an
+              IEEE Student member currently working on a journal paper. I have also cultivated strong knowledge in
+              prompt engineering and computer networks. As an active open source contributor, my work emphasizes logical
+              thinking, collaboration, and continuous learning.</p>
+          </div>
+          <p id="about-read-more" class="read-more-text">Click to read more ↓</p>
+        </div>
+        <div class="education-timeline glass card">
+          <h3>Education</h3>
+          <ul class="timeline">
+            <li>
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h4>B.Tech in Computer Science</h4>
+                <p>KL University (CGPA: 9.0)</p>
+              </div>
+            </li>
+            <li>
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h4>Intermediate</h4>
+                <p>Narayana Junior College (93%)</p>
+              </div>
+            </li>
+            <li>
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h4>Schooling</h4>
+                <p>The Hyderabad Public School (85%)</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interests & Strengths Section -->
+    <section id="interests" class="section fade-in">
+      <h2 class="section-title">Areas of Interest</h2>
+      <div class="interests-container text-center">
+        <p class="mb-4">I aim to contribute to impactful technological solutions in the future with a focus on:</p>
+        <div class="tags justify-center large-tags">
+          <span class="tag charming">Artificial Intelligence & Cognitive Systems</span>
+          <span class="tag charming">Software Development</span>
+          <span class="tag charming">Prompt Engineering</span>
+          <span class="tag charming">Computer Networks</span>
+          <span class="tag charming">Research & Innovation</span>
+          <span class="tag charming">Full-Stack Application Development</span>
+        </div>
+      </div>
+
+      <div class="strengths-banner glass mt-5">
+        <h3>Core Strengths</h3>
+        <div class="tags justify-center">
+          <span class="tag outline">Analytical Thinking</span>
+          <span class="tag outline">Research</span>
+          <span class="tag outline">Innovation</span>
+          <span class="tag outline">Project Development</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section fade-in">
+      <h2 class="section-title">Achievements</h2>
+      <div class="grid cert-grid">
+        <div class="cert-item glass">
+          <div class="cert-icon">🎖️</div>
+          <div class="cert-info">
+            <h4>National Cadet Corps (NCC)</h4>
+            <p>Currently pursuing 'C' Certificate</p>
+            <span class="date">Active Cadet</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section fade-in">
+      <h2 class="section-title">Technical Expertise</h2>
+      <div class="skills-container">
+        <div class="skill-category card glass card-3d fade-in">
+          <div class="card-inner">
+            <h3>Programming & Concepts</h3>
+            <ul class="skill-list">
+              <li><strong>Languages:</strong> C, Java, Python</li>
+              <li><strong>Core:</strong> Data Structures & Algorithms (DSA), Computer Networks</li>
+              <li><strong>Concepts:</strong> Artificial Intelligence</li>
+              <li><strong>Concepts:</strong> Cognitive Systems</li>
+              <li><strong>Concepts:</strong> Prompt Engineering</li>
+            </ul>
+          </div>
+        </div>
+        <div class="skill-category card glass card-3d fade-in" style="transition-delay: 0.1s;">
+          <div class="card-inner">
+            <h3>Web & Databases</h3>
+            <ul class="skill-list">
+              <li><strong>Frontend:</strong> HTML, CSS</li>
+              <li><strong>Backend:</strong> Flask, Django</li>
+              <li><strong>Databases:</strong> MongoDB, SQLite</li>
+            </ul>
+          </div>
+        </div>
+        <div class="skill-category card glass card-3d fade-in" style="transition-delay: 0.2s;">
+          <div class="card-inner">
+            <h3>Tools & Platforms</h3>
+            <ul class="skill-list">
+              <li>PyCharm</li>
+              <li>Git</li>
+              <li>Packet Tracer</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GitHub Activity Section -->
+    <section id="github-activity" class="section text-center fade-in">
+      <h2 class="section-title">GitHub Contributions</h2>
+      <div class="glass" style="display: inline-block; padding: 1.5rem; margin-top: 1rem;">
+        <img id="gh-graph" src="https://ghchart.rshah.org/6366f1/Thanvik931"
+          alt="Thanvik931's GitHub Contribution Graph" style="max-width: 100%; border-radius: 8px;">
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section fade-in">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="text-center mb-4">Live sync from GitHub using the GitHub API.</p>
+      <div id="github-projects" class="grid cards">
+        <!-- Projects will be injected here via main.js -->
+        <div class="text-center"
+          style="grid-column: 1 / -1; min-height: 200px; display: flex; align-items:center; justify-content:center;">
+          <p>Loading projects...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section fade-in text-center">
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="mb-5">Currently looking for meaningful internship opportunities where I can contribute and grow.</p>
+      <div class="glass card-3d" style="max-width: 800px; margin: 0 auto; padding: 3rem;">
+        <div class="card-inner" style="display: flex; flex-direction: column; gap: 2rem;">
+
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: nowrap;">
+            <a href="mailto:thanvikreddy2@gmail.com" class="contact-card-link" style="flex: 1; min-width: 0;">
+              <div class="contact-icon">📧</div>
+              <div class="contact-text">
+                <span>Email Me</span>
+                <strong style="white-space: nowrap; font-size: 1.1rem;">thanvikreddy2@gmail.com</strong>
+              </div>
+            </a>
+
+            <a href="tel:+918790505507" class="contact-card-link" style="flex: 1; min-width: 0;">
+              <div class="contact-icon">📱</div>
+              <div class="contact-text">
+                <span>Call Me</span>
+                <strong style="white-space: nowrap; font-size: 1.1rem;">+91 8790505507</strong>
+              </div>
+            </a>
+          </div>
+
+          <hr style="border-color: rgba(255,255,255,0.1); margin: 1rem 0;">
+
+          <h3 style="margin-bottom: 0.5rem;">Direct Inquiry</h3>
+          <p style="font-size: 0.9rem; color: #a1a1aa; margin-bottom: 1.5rem;">Send a formal inquiry directly to my
+            WhatsApp.</p>
+
+          <form id="feedback-form" class="contact-form">
+            <div class="form-group">
+              <input type="text" id="senderName" placeholder="Full Name / Organization" required>
+            </div>
+            <div class="form-group">
+              <textarea id="senderMessage" placeholder="Your Message" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn primary" style="width: 100%;">Send Message</button>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Sama Thanvik Reddy. Innovate, Create, Inspire.</p>
+    <div class="socials">
+      <a href="https://github.com/Thanvik931" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/sama-thanvik-reddy-127b76320/" target="_blank"
+        rel="noopener noreferrer">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>
