@@ -1,5 +1,9 @@
 import './style.css';
 import * as THREE from 'three';
+import { inject } from '@vercel/analytics';
+
+// Initialize Vercel Web Analytics
+inject();
 
 // --- Theme Toggle Logic ---
 const themeToggleBtn = document.getElementById('theme-toggle');
