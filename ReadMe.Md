@@ -2,7 +2,7 @@
 
 <img src="https://user-images.githubusercontent.com/22107794/139580686-887df369-edb8-4bc8-b607-4fbf6d7e4866.gif" width="100%"/>
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&pause=1000&color=2FBF64&center=true&vCenter=true&width=600&lines=Hi%2C+I'm+Thanvik+%F0%9F%91%8B;Full-Stack+Developer;CS+Undergrad+%40+KLH;Building+AI-Governance+Tools;Open+to+Web+Dev+Collabs" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&pause=1000&color=2FBF64&center=true&vCenter=true&width=600&lines=Hi%2C+I'm+Sama Thanvik Reddy+%F0%9F%91%8B;Full-Stack+Developer;CS+Undergrad+%40+KL University Hyderabad;Building+AI-Governance+Tools;Open+to+Web+Dev+Collabs" alt="Typing SVG" />
 
 <p>
   <img src="https://img.shields.io/badge/🌍_Hyderabad,_India-1e1e2e?style=for-the-badge" />
@@ -26,13 +26,12 @@
 
 <img align="right" width="340" src="https://user-images.githubusercontent.com/74038190/221352989-518609ab-b4d1-459e-929f-a08cd2bd9b3c.gif" />
 
-I'm a second-year CS undergrad who builds full-stack products end-to-end — from AI-governance research tools to production dashboards. I care about clean UI, scalable backends, and shipping things that actually work, not just demo well.
+I'm a third-year Computer Science undergrad who builds full-stack products end-to-end — from AI-governance research tools to production dashboards. I care about clean UI, scalable backends, and shipping things that actually work, not just demo well.
 
 - 🎓 B.Tech CSE @ **KL University (KLH)** — **9.0 CGPA**
 - 🔬 Currently building **NeuroCloak**, a Cognitive Digital Twin framework for AI governance & explainability
-- 💼 Interning @ **StepUp for AI**, building the Investor Dashboard
+- 💼 Interning @ **StepUp for AI**
 - 🎖️ **NCC A & B Certificate** holder, C Certificate in progress
-- 🏆 **2nd Place** — KLH College Hackathon
 - ⚡ Fun fact: I'm also a secret **🥷 Vigilante** — ask me about it
 
 <br clear="right"/>
@@ -49,18 +48,18 @@ I'm a second-year CS undergrad who builds full-stack products end-to-end — fro
 | 🏫 Institution | KL University (KLH), Hyderabad |
 | 📘 Degree | B.Tech, Computer Science |
 | 📊 CGPA | **9.0 / 10** |
-| 📅 Year | 2nd Year |
+| 📅 Year | 3rd Year |
 
 </td>
 <td valign="top" width="50%">
 
 **Certifications**
 - 🟢 NVIDIA — *Building LLM Apps with Prompt Engineering*
-- 🟡 MongoDB Associate Developer — *in progress*
+- 🟢 MongoDB Associate Developer 
+- 🟢 Automation Anywhere — *Advanced RPA Certified*
+- 🗣️ Cambridge Linguaskill — **B2 (161/180)**
 - 🟡 AWS Cloud Practitioner — *in progress*
 - 🟡 Salesforce Administrator — *in progress*
-- 🟡 Automation Anywhere — *in progress*
-- 🗣️ Cambridge Linguaskill — **B2 (161/180)**
 
 </td>
 </tr>
@@ -72,7 +71,6 @@ I'm a second-year CS undergrad who builds full-stack products end-to-end — fro
   <img src="https://img.shields.io/badge/NCC-A_Certificate-2FBF64?style=for-the-badge" />
   <img src="https://img.shields.io/badge/NCC-B_Certificate-2FBF64?style=for-the-badge" />
   <img src="https://img.shields.io/badge/NCC-C_Certificate_(In_Progress)-FFC107?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/KLH_Hackathon-🥈_2nd_Place-2FBF64?style=for-the-badge" />
 </p>
 
 ## 🛠️ Tech Stack
@@ -84,13 +82,13 @@ I'm a second-year CS undergrad who builds full-stack products end-to-end — fro
 <img src="https://skillicons.dev/icons?i=html,css,js,ts,python,java,c" />
 </td>
 <td width="25%" align="center"><b>Frameworks</b><br/><br/>
-<img src="https://skillicons.dev/icons?i=react,nodejs,django,nextjs,flask" />
+<img src="https://skillicons.dev/icons?i=react,nodejs,django,flask" />
 </td>
 <td width="25%" align="center"><b>Databases</b><br/><br/>
 <img src="https://skillicons.dev/icons?i=mongodb,mysql,firebase" />
 </td>
 <td width="25%" align="center"><b>Tools</b><br/><br/>
-<img src="https://skillicons.dev/icons?i=git,github,figma,vscode,gcp,postman" />
+<img src="https://skillicons.dev/icons?i=git,github,figma,vscode,postman" />
 </td>
 </tr>
 </table>
@@ -125,32 +123,7 @@ Full Python stack analyzing model outputs for trust and compliance signals, with
 
 </td>
 </tr>
-<tr>
-<td width="50%" valign="top">
 
-### 📊 Investor Dashboard — StepUp for AI
-**Frontend investor-facing dashboard built during internship**
-
-Dark glassmorphic UI matching brand identity, built collaboratively with a team of interns.
-
-`HTML` `CSS` `JavaScript`
-
-[View Repo →](#)
-
-</td>
-<td width="50%" valign="top">
-
-### 🍽️ Restaurant Reservation System — Fission
-**Full-stack MERN reservation management system**
-
-Built end-to-end under a 48-hour take-home deadline: booking flow, admin management, and REST API.
-
-`MongoDB` `Express` `React` `Node.js`
-
-[View Repo →](#)
-
-</td>
-</tr>
 </table>
 
 > 💡 Replace the `#` links above with your actual repo URLs once they're public.
