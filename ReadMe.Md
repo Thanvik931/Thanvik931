@@ -2,7 +2,7 @@
 
 <img src="https://user-images.githubusercontent.com/22107794/139580686-887df369-edb8-4bc8-b607-4fbf6d7e4866.gif" width="100%"/>
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&pause=1000&color=2FBF64&center=true&vCenter=true&width=600&lines=Hi%2C+I'm+Sama Thanvik Reddy+%F0%9F%91%8B;Full-Stack+Developer;CS+Undergrad+%40+KL University Hyderabad;Building+AI-Governance+Tools;Open+to+Web+Dev+Collabs" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&pause=1000&color=2FBF64&center=true&vCenter=true&width=700&lines=Hi%2C+I%27m+Sama+Thanvik+Reddy+%F0%9F%91%8B;Full-Stack+Developer;CS+Undergrad+%40+KL+University+Hyderabad;Building+AI-Governance+Tools;Open+to+Web+Dev+Collabs" alt="Typing SVG" />
 
 <p>
   <img src="https://img.shields.io/badge/🌍_Hyderabad,_India-1e1e2e?style=for-the-badge" />
@@ -131,19 +131,17 @@ Full Python stack analyzing model outputs for trust and compliance signals, with
 ## 📊 GitHub Stats
 
 <div align="center">
-<img src="https://github-readme-stats.vercel.app/api?username=thanvik931&show_icons=true&theme=dark&hide_border=true&bg_color=1e1e2e&title_color=2FBF64&icon_color=2FBF64" height="165"/>
+<img src="https://github-readme-stats-nu-nine-82.vercel.app/api?username=thanvik931&show_icons=true&theme=dark&hide_border=true&bg_color=1e1e2e&title_color=2FBF64&icon_color=2FBF64" height="165"/>
 <img src="https://github-readme-streak-stats.herokuapp.com/?user=thanvik931&theme=dark&hide_border=true&background=1e1e2e&ring=2FBF64&fire=2FBF64" height="165"/>
 </div>
 
 <div align="center">
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=thanvik931&layout=compact&theme=dark&hide_border=true&bg_color=1e1e2e&title_color=2FBF64" height="165"/>
+<img src="https://github-readme-stats-nu-nine-82.vercel.app/api/top-langs/?username=thanvik931&layout=compact&theme=dark&hide_border=true&bg_color=1e1e2e&title_color=2FBF64" height="165"/>
 </div>
 
 <div align="center">
 <img src="https://github-profile-trophy.vercel.app/?username=thanvik931&theme=darkhub&no-frame=true&margin-w=8&row=1" />
 </div>
-
----
 
 <div align="center">
 
