@@ -138,7 +138,7 @@ async function fetchGitHubProjects() {
 
     const repos = await response.json();
 
-    const excluded = ['neurocloak', 'stepup-for-ai', 'stepupforai'];
+    const excluded = ['neurocloak', 'stepup-for-ai', 'stepupforai', 'skilling-', 'skilling'];
     const filteredRepos = repos
       .filter(repo => !repo.fork && !excluded.includes(repo.name.toLowerCase()))
       .slice(0, 3);
