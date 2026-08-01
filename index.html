@@ -5,33 +5,29 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sama Thanvik Reddy | AI Systems & Full-Stack Developer</title>
-  <meta name="description" content="Portfolio of Sama Thanvik Reddy — B.Tech CSE Student at KL University, AI Governance & Full-Stack Developer, Certified Automation Anywhere Advanced RPA Professional." />
+  <title>Sama Thanvik Reddy — Personal Portfolio</title>
+  <meta name="description" content="Personal Developer Portfolio of Sama Thanvik Reddy — B.Tech CSE Student at KL University, AI Governance & Full-Stack Developer." />
 
-  <!-- Fonts: Outfit & Plus Jakarta Sans -->
+  <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-  <!-- Custom Glow Cursor -->
-  <div id="custom-cursor"></div>
-  <div id="cursor-trail"></div>
+  <!-- Ambient Gradient Background -->
+  <div class="ambient-glow"></div>
 
-  <!-- Toast Notification Banner -->
+  <!-- Toast Notification Container -->
   <div id="toast-container" class="toast-container"></div>
 
-  <!-- 3D Canvas Background -->
-  <canvas id="bg-canvas"></canvas>
-
-  <!-- Sticky Navbar -->
+  <!-- Navbar -->
   <header id="navbar">
     <nav class="glass-nav">
       <a href="#hero" class="logo">
-        <span class="logo-accent">⚡</span> Sama<span class="highlight-gradient">Thanvik</span>
+        <span class="logo-dot"></span> Sama Thanvik Reddy
       </a>
 
       <ul class="nav-links">
@@ -44,12 +40,12 @@
       </ul>
 
       <div class="nav-actions">
-        <button id="resume-modal-btn" class="btn btn-sm btn-glass nav-resume-btn">
+        <button id="resume-modal-btn" class="btn btn-sm btn-secondary">
           <span>📄 Resume</span>
         </button>
         
         <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
-          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
             <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -60,13 +56,9 @@
             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
           </svg>
-          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
-        </button>
-
-        <button class="mobile-toggle" aria-label="Mobile Navigation Toggle">
-          <span></span><span></span><span></span>
         </button>
       </div>
     </nav>
@@ -75,87 +67,60 @@
   <main>
     <!-- Hero Section -->
     <section id="hero" class="hero-section">
-      <div class="hero-container">
+      <div class="hero-grid">
         
-        <div class="hero-content fade-in">
-          <div class="status-pill">
-            <span class="status-dot"></span>
-            <span>Open for Summer Internships & AI/Dev Roles</span>
+        <div class="hero-text-content">
+          <div class="status-badge">
+            <span class="status-pulse"></span>
+            <span>Open for Summer Internships & Roles</span>
           </div>
 
-          <h1 class="hero-title">
-            Hi, I'm <span class="highlight-gradient">Sama Thanvik Reddy</span>
-          </h1>
+          <h1 class="hero-name">Sama Thanvik Reddy</h1>
 
-          <div class="typing-container">
-            <span class="typing-prefix">I am a </span>
-            <span id="typing-text" class="typing-text"></span>
-            <span class="typing-cursor">|</span>
+          <div class="hero-subtitle">
+            AI Systems & Full-Stack Developer
           </div>
 
-          <p class="hero-bio">
-            2nd-year B.Tech CSE student at <strong>KL University (CGPA 9.0/10)</strong> specializing in <strong>AI Governance</strong>, <strong>Explainable AI (SHAP/LIME)</strong>, <strong>Full-Stack Development (React/FastAPI)</strong>, and <strong>Enterprise RPA Automation</strong>.
+          <p class="hero-description">
+            2nd-year B.Tech CSE student at <strong>KL University (CGPA 9.0 / 10.0)</strong> specializing in <strong>AI Governance</strong>, <strong>Explainable AI (SHAP/LIME)</strong>, <strong>Full-Stack Applications (React 18 / FastAPI)</strong>, and <strong>RPA Automation</strong>.
           </p>
 
-          <div class="hero-cta">
+          <div class="hero-buttons">
             <a href="#projects" class="btn btn-primary">
               <span>View Featured Projects</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
-            <button id="hero-resume-btn" class="btn btn-glass">
-              <span>📄 View Resume PDF</span>
+            <button id="hero-resume-btn" class="btn btn-secondary">
+              <span>📄 Resume PDF</span>
             </button>
-            <a href="#contact" class="btn btn-outline">
+            <a href="#contact" class="btn btn-secondary">
               <span>💼 Contact Me</span>
             </a>
           </div>
 
-          <div class="hero-quick-links">
-            <a href="https://github.com/Thanvik931" target="_blank" rel="noopener" class="quick-link-item" title="GitHub Profile">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <div class="hero-socials">
+            <a href="https://github.com/Thanvik931" target="_blank" rel="noopener" class="social-pill">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
               <span>GitHub</span>
             </a>
-            <a href="https://www.linkedin.com/in/sama-thanvik-reddy-127b76320/" target="_blank" rel="noopener" class="quick-link-item" title="LinkedIn Profile">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            <a href="https://www.linkedin.com/in/sama-thanvik-reddy-127b76320/" target="_blank" rel="noopener" class="social-pill">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
               <span>LinkedIn</span>
             </a>
-            <button class="quick-link-item copy-email-btn" title="Click to copy email">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <button class="social-pill copy-email-btn" title="Click to copy email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
               <span>thanvikreddy2@gmail.com</span>
             </button>
           </div>
         </div>
 
-        <div class="hero-visual fade-in">
-          <div class="profile-card-3d">
-            <div class="profile-frame">
-              <img src="/profile.jpg" alt="Sama Thanvik Reddy - Professional Portrait" class="profile-img" />
-              <div class="glow-overlay"></div>
-            </div>
-
-            <!-- Floating Badges -->
-            <div class="floating-badge badge-top-right">
-              <div class="badge-icon">🎓</div>
-              <div class="badge-text">
-                <span class="badge-title">CGPA 9.0/10</span>
-                <span class="badge-sub">KL University</span>
-              </div>
-            </div>
-
-            <div class="floating-badge badge-bottom-left">
-              <div class="badge-icon">🏆</div>
-              <div class="badge-text">
-                <span class="badge-title">2nd Place</span>
-                <span class="badge-sub">KLH Hackathon</span>
-              </div>
-            </div>
-
-            <div class="floating-badge badge-bottom-right">
-              <div class="badge-icon">🤖</div>
-              <div class="badge-text">
-                <span class="badge-title">RPA Certified</span>
-                <span class="badge-sub">Automation Anywhere</span>
-              </div>
+        <!-- Real Photo -->
+        <div class="hero-photo-wrapper">
+          <div class="photo-card">
+            <img src="/profile.jpg" alt="Sama Thanvik Reddy" class="real-photo" />
+            <div class="photo-caption-bar">
+              <span class="photo-name">Sama Thanvik Reddy</span>
+              <span class="photo-role">B.Tech CSE @ KL University</span>
             </div>
           </div>
         </div>
@@ -163,163 +128,154 @@
       </div>
     </section>
 
-    <!-- Metrics Impact Banner -->
-    <section id="metrics" class="metrics-section fade-in">
+    <!-- Metrics Bar -->
+    <section class="metrics-section">
       <div class="metrics-grid">
-        <div class="metric-card glass">
-          <div class="metric-value">9.0<span class="metric-unit">/10</span></div>
-          <div class="metric-label">CGPA @ KL University</div>
-          <div class="metric-desc">B.Tech Computer Science & Engineering</div>
+        <div class="metric-box">
+          <div class="metric-num">9.0<span style="font-size: 1.2rem; color: var(--text-tertiary);">/10</span></div>
+          <div class="metric-title">CGPA @ KL University</div>
+          <div class="metric-sub">Computer Science & Eng.</div>
         </div>
-        <div class="metric-card glass">
-          <div class="metric-value">2<span class="metric-unit">+</span></div>
-          <div class="metric-label">AI Governance Projects</div>
-          <div class="metric-desc">NeuroCloak & TrustLens AI</div>
+        <div class="metric-box">
+          <div class="metric-num">2+</div>
+          <div class="metric-title">AI Governance Platforms</div>
+          <div class="metric-sub">NeuroCloak & TrustLens AI</div>
         </div>
-        <div class="metric-card glass">
-          <div class="metric-value">2nd<span class="metric-unit"> Place</span></div>
-          <div class="metric-label">Hackathon Winner</div>
-          <div class="metric-desc">Out of 30+ Competing Teams</div>
+        <div class="metric-box">
+          <div class="metric-num">2nd</div>
+          <div class="metric-title">Hackathon Rank</div>
+          <div class="metric-sub">Out of 30+ Teams</div>
         </div>
-        <div class="metric-card glass">
-          <div class="metric-value">2x<span class="metric-unit"> Certified</span></div>
-          <div class="metric-label">Advanced Professional</div>
-          <div class="metric-desc">Automation Anywhere & NVIDIA DLI</div>
+        <div class="metric-box">
+          <div class="metric-num">2x</div>
+          <div class="metric-title">Certified Professional</div>
+          <div class="metric-sub">Automation Anywhere & NVIDIA DLI</div>
         </div>
       </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section fade-in">
-      <div class="section-header">
-        <span class="section-subtitle">BACKGROUND & PASSION</span>
-        <h2 class="section-title">About Me</h2>
+    <section id="about" class="section">
+      <div class="section-head">
+        <span class="section-label">BACKGROUND</span>
+        <h2 class="section-heading">About Me</h2>
       </div>
 
-      <div class="about-grid">
-        <div class="about-card glass card-3d">
-          <div class="card-inner">
-            <h3 class="about-heading">Engineering Intelligent & Responsible AI Systems</h3>
-            <p>
-              I am a driven Computer Science & Engineering undergraduate at <strong>KL University (KLH)</strong> with a strong commitment to software craftsmanship, AI governance, and high-performance full-stack web applications.
-            </p>
-            <p>
-              My development philosophy centres around building <strong>transparent, explainable AI pipelines</strong> (integrating SHAP & LIME) and real-time monitoring interfaces (React 18 & WebSockets) that align with global compliance standards like the EU AI Act and NIST AI RMF.
-            </p>
-            <p>
-              Beyond coursework, I actively contribute to open-source through <strong>GSSoC 2026</strong>, hold an <strong>Automation Anywhere Certified Advanced Developer credential</strong>, and have completed advanced training with the <strong>NVIDIA Deep Learning Institute</strong>.
-            </p>
+      <div class="about-card-clean">
+        <p>
+          I am a 2nd-year Computer Science student at <strong>KL University (KLH)</strong> in Hyderabad with a strong passion for building software applications, responsible AI governance, and scalable web platforms.
+        </p>
+        <p>
+          My work combines <strong>modern full-stack engineering</strong> (React 18, TypeScript, FastAPI) with <strong>explainable machine learning architectures</strong> (SHAP, LIME) to create transparent AI auditing systems aligned with global compliance frameworks (EU AI Act & NIST AI RMF).
+        </p>
+        <p>
+          Beyond academics, I am an active open-source contributor in <strong>GSSoC 2026</strong>, an <strong>Automation Anywhere Certified Advanced Developer</strong> in enterprise RPA, and a 2nd-place winner in the KLH Internal Hackathon.
+        </p>
 
-            <div class="about-highlights-grid">
-              <div class="highlight-item">
-                <span class="highlight-icon">📍</span>
-                <div>
-                  <strong>Location</strong>
-                  <span>Hyderabad, India</span>
-                </div>
-              </div>
-              <div class="highlight-item">
-                <span class="highlight-icon">🎓</span>
-                <div>
-                  <strong>Degree</strong>
-                  <span>B.Tech CSE (2024 – 2028)</span>
-                </div>
-              </div>
-              <div class="highlight-item">
-                <span class="highlight-icon">💡</span>
-                <div>
-                  <strong>Core Interest</strong>
-                  <span>AI Governance & Full-Stack</span>
-                </div>
-              </div>
-              <div class="highlight-item">
-                <span class="highlight-icon">🎖️</span>
-                <div>
-                  <strong>Leadership</strong>
-                  <span>NCC Cadet (A & B Certs)</span>
-                </div>
-              </div>
+        <div class="about-fact-grid">
+          <div class="fact-item">
+            <span class="fact-icon">📍</span>
+            <div>
+              <strong>Location</strong>
+              <span>Hyderabad, India</span>
+            </div>
+          </div>
+          <div class="fact-item">
+            <span class="fact-icon">🎓</span>
+            <div>
+              <strong>Education</strong>
+              <span>B.Tech CSE (2024 – 2028)</span>
+            </div>
+          </div>
+          <div class="fact-item">
+            <span class="fact-icon">💻</span>
+            <div>
+              <strong>Focus</strong>
+              <span>AI Governance & Web Apps</span>
+            </div>
+          </div>
+          <div class="fact-item">
+            <span class="fact-icon">🎗️</span>
+            <div>
+              <strong>Leadership</strong>
+              <span>NCC Cadet ('A' & 'B' Certs)</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Featured Projects Section -->
-    <section id="projects" class="section fade-in">
-      <div class="section-header">
-        <span class="section-subtitle">INNOVATION & ARCHITECTURE</span>
-        <h2 class="section-title">Featured Projects</h2>
+    <!-- Featured Projects -->
+    <section id="projects" class="section">
+      <div class="section-head">
+        <span class="section-label">PORTFOLIO</span>
+        <h2 class="section-heading">Featured Projects</h2>
       </div>
 
       <div class="projects-featured-grid">
         
         <!-- Project 1: NeuroCloak -->
-        <article class="featured-project-card glass card-3d">
-          <div class="project-header">
-            <div class="project-category">AI Governance & Real-Time Dashboards</div>
-            <h3 class="project-title">NeuroCloak — AI Governance Dashboard</h3>
-            <div class="project-duration">Aug 2024 – Present</div>
+        <article class="project-card-clean">
+          <div>
+            <div class="project-badge">AI Governance & Real-Time UI</div>
+            <h3 class="project-card-title">NeuroCloak — AI Governance Dashboard</h3>
+            <div class="project-dates">Aug 2024 – Present</div>
+
+            <p class="project-text">
+              Real-time multi-layer AI governance monitoring platform designed to measure and visualize 5 cognitive metrics across 3 live AI demo environments.
+            </p>
+
+            <ul class="project-bullets">
+              <li><strong>Frontend Development:</strong> Built responsive React 18 & TypeScript frontend with WebSocket streaming for live metric updates.</li>
+              <li><strong>Team Leadership:</strong> Led 4-person cross-functional team across frontend, backend, and research over 5 months.</li>
+              <li><strong>Containerized Stack:</strong> Containerized using Docker for reliable multi-environment deployment.</li>
+            </ul>
           </div>
 
-          <p class="project-desc">
-            Led the frontend development of a real-time AI governance and monitoring platform built to track and audit multi-layer cognitive metrics across live AI demo systems.
-          </p>
+          <div>
+            <div class="project-tech-tags">
+              <span class="tech-tag">React 18</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">WebSockets</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">AI Governance</span>
+            </div>
 
-          <ul class="project-highlights">
-            <li><strong>Frontend Leadership:</strong> Architected real-time dashboard UI using React 18, TypeScript, and WebSockets for low-latency metric streaming.</li>
-            <li><strong>Team Coordination:</strong> Coordinated a 4-person cross-functional team spanning frontend, backend, and research tracks over a 5-month development cycle.</li>
-            <li><strong>Dockerized Deployment:</strong> Containerized multi-layer UI monitoring 5 key cognitive metrics across 3 live AI demo systems.</li>
-          </ul>
-
-          <div class="project-tags">
-            <span class="tag">React 18</span>
-            <span class="tag">TypeScript</span>
-            <span class="tag">WebSockets</span>
-            <span class="tag">Docker</span>
-            <span class="tag">AI Governance</span>
-            <span class="tag">Cognitive Metrics</span>
-          </div>
-
-          <div class="project-actions">
             <a href="https://github.com/Thanvik931/NeuroCloak.git" target="_blank" rel="noopener" class="btn btn-sm btn-primary">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
               <span>View Repository</span>
             </a>
           </div>
         </article>
 
         <!-- Project 2: TrustLens AI -->
-        <article class="featured-project-card glass card-3d">
-          <div class="project-header">
-            <div class="project-category">Full-Stack Explainable AI Pipeline</div>
-            <h3 class="project-title">TrustLens AI — Bias Detection Platform</h3>
-            <div class="project-duration">Jan 2025 – Present</div>
+        <article class="project-card-clean">
+          <div>
+            <div class="project-badge">Full-Stack Explainable AI</div>
+            <h3 class="project-card-title">TrustLens AI — Bias Detection Platform</h3>
+            <div class="project-dates">Jan 2025 – Present</div>
+
+            <p class="project-text">
+              Full-stack bias detection and auditing platform delivering per-prediction explainability reports aligned with international regulatory standards.
+            </p>
+
+            <ul class="project-bullets">
+              <li><strong>Auditing Pipeline:</strong> Architected pipeline with FastAPI, Streamlit, and Celery for async job queuing and real-time UI updates.</li>
+              <li><strong>Model Explainability:</strong> Integrated SHAP & LIME engines for granular feature importance breakdowns.</li>
+              <li><strong>Regulatory Compliance:</strong> Aligned audit outputs with EU AI Act and NIST AI Risk Management Framework.</li>
+            </ul>
           </div>
 
-          <p class="project-desc">
-            Architected an end-to-end full-stack auditing pipeline designed to detect bias in machine learning models and deliver per-prediction explainability reports.
-          </p>
+          <div>
+            <div class="project-tech-tags">
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">Streamlit</span>
+              <span class="tech-tag">Celery</span>
+              <span class="tech-tag">SHAP</span>
+              <span class="tech-tag">LIME</span>
+              <span class="tech-tag">EU AI Act</span>
+            </div>
 
-          <ul class="project-highlights">
-            <li><strong>Async Job Queuing:</strong> Built full-stack architecture using FastAPI, Streamlit, and Celery for asynchronous job processing and live UI updates.</li>
-            <li><strong>Explainable AI Integration:</strong> Integrated SHAP and LIME interpretability frameworks to generate granular feature importance breakdowns.</li>
-            <li><strong>Regulatory Compliance:</strong> Aligned per-prediction audit reports with global frameworks including the EU AI Act and NIST AI Risk Management Framework (RMF).</li>
-          </ul>
-
-          <div class="project-tags">
-            <span class="tag">FastAPI</span>
-            <span class="tag">Streamlit</span>
-            <span class="tag">Celery</span>
-            <span class="tag">SHAP</span>
-            <span class="tag">LIME</span>
-            <span class="tag">EU AI Act</span>
-            <span class="tag">NIST RMF</span>
-          </div>
-
-          <div class="project-actions">
             <a href="https://github.com/Thanvik931/NLP---TrustLens.git" target="_blank" rel="noopener" class="btn btn-sm btn-primary">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
               <span>View Repository</span>
             </a>
           </div>
@@ -327,168 +283,129 @@
 
       </div>
 
-      <!-- Live GitHub Repos -->
-      <div class="github-repos-header">
-        <h3 class="subsection-title">More Open Source Repositories</h3>
-        <p>Live sync from GitHub API</p>
+      <!-- More Repos -->
+      <div style="margin-bottom: 1.5rem;">
+        <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.3rem;">Other GitHub Repositories</h3>
+        <p style="font-size: 0.88rem; color: var(--text-secondary);">Synced live via GitHub API</p>
       </div>
 
-      <div id="github-projects" class="grid cards">
-        <div class="loading-spinner-container">
-          <div class="spinner"></div>
-          <p>Fetching repositories from GitHub...</p>
-        </div>
+      <div id="github-projects" class="repo-grid-clean">
+        <p style="grid-column: 1 / -1; color: var(--text-secondary);">Loading repositories...</p>
       </div>
     </section>
 
-    <!-- Technical Skills Section -->
-    <section id="skills" class="section fade-in">
-      <div class="section-header">
-        <span class="section-subtitle">CAPABILITIES & TOOLSET</span>
-        <h2 class="section-title">Technical Expertise</h2>
+    <!-- Technical Skills -->
+    <section id="skills" class="section">
+      <div class="section-head">
+        <span class="section-label">EXPERTISE</span>
+        <h2 class="section-heading">Technical Skills</h2>
       </div>
 
-      <div class="skills-grid">
+      <div class="skills-grid-clean">
         
-        <!-- Category 1: AI & ML Governance -->
-        <div class="skill-category-card glass card-3d">
-          <div class="card-inner">
-            <div class="skill-icon">🧠</div>
-            <h3>AI, ML & Governance</h3>
-            <ul class="skill-list">
-              <li><span>SHAP & LIME Interpretability</span><span class="skill-level">Advanced</span></li>
-              <li><span>LLM Prompt Engineering</span><span class="skill-level">Certified</span></li>
-              <li><span>Fairlearn & AIF360</span><span class="skill-level">Proficient</span></li>
-              <li><span>Cognitive Systems & Metrics</span><span class="skill-level">Proficient</span></li>
-              <li><span>EU AI Act & NIST RMF Audit</span><span class="skill-level">Applied</span></li>
-            </ul>
-          </div>
+        <div class="skill-box-clean">
+          <h3>🧠 AI & ML Governance</h3>
+          <ul class="skill-items">
+            <li><span>SHAP & LIME Interpretability</span> <span class="skill-tag-level">Advanced</span></li>
+            <li><span>LLM Prompt Engineering</span> <span class="skill-tag-level">Certified</span></li>
+            <li><span>Fairlearn & AIF360</span> <span class="skill-tag-level">Proficient</span></li>
+            <li><span>EU AI Act & NIST RMF Standards</span> <span class="skill-tag-level">Applied</span></li>
+          </ul>
         </div>
 
-        <!-- Category 2: Languages & Core CS -->
-        <div class="skill-category-card glass card-3d">
-          <div class="card-inner">
-            <div class="skill-icon">💻</div>
-            <h3>Languages & Core CS</h3>
-            <ul class="skill-list">
-              <li><span>Python</span><span class="skill-level">Primary</span></li>
-              <li><span>JavaScript / TypeScript</span><span class="skill-level">Primary</span></li>
-              <li><span>SQL & Relational Databases</span><span class="skill-level">Proficient</span></li>
-              <li><span>C & Core Concepts</span><span class="skill-level">Proficient</span></li>
-              <li><span>Data Structures & Algorithms</span><span class="skill-level">Strong</span></li>
-            </ul>
-          </div>
+        <div class="skill-box-clean">
+          <h3>💻 Languages & Core CS</h3>
+          <ul class="skill-items">
+            <li><span>Python</span> <span class="skill-tag-level">Primary</span></li>
+            <li><span>JavaScript & TypeScript</span> <span class="skill-tag-level">Primary</span></li>
+            <li><span>SQL & Relational Databases</span> <span class="skill-tag-level">Proficient</span></li>
+            <li><span>C & DSA Concepts</span> <span class="skill-tag-level">Proficient</span></li>
+          </ul>
         </div>
 
-        <!-- Category 3: Frontend & UI Design -->
-        <div class="skill-category-card glass card-3d">
-          <div class="card-inner">
-            <div class="skill-icon">🌐</div>
-            <h3>Frontend & Design</h3>
-            <ul class="skill-list">
-              <li><span>React 18 & Modern Hooks</span><span class="skill-level">Advanced</span></li>
-              <li><span>HTML5 / CSS3 / Glassmorphic UI</span><span class="skill-level">Expert</span></li>
-              <li><span>Figma Layouts & Prototyping</span><span class="skill-level">Proficient</span></li>
-              <li><span>Canva Assets & Media</span><span class="skill-level">Proficient</span></li>
-              <li><span>Responsive & Mobile-First</span><span class="skill-level">Expert</span></li>
-            </ul>
-          </div>
+        <div class="skill-box-clean">
+          <h3>🌐 Web & Backend Frameworks</h3>
+          <ul class="skill-items">
+            <li><span>React 18 & HTML5/CSS3</span> <span class="skill-tag-level">Advanced</span></li>
+            <li><span>FastAPI & REST APIs</span> <span class="skill-tag-level">Advanced</span></li>
+            <li><span>Node.js & Express.js</span> <span class="skill-tag-level">Proficient</span></li>
+            <li><span>Streamlit & WebSockets</span> <span class="skill-tag-level">Proficient</span></li>
+          </ul>
         </div>
 
-        <!-- Category 4: Backend & Databases -->
-        <div class="skill-category-card glass card-3d">
-          <div class="card-inner">
-            <div class="skill-icon">⚙️</div>
-            <h3>Backend & Cloud Tools</h3>
-            <ul class="skill-list">
-              <li><span>FastAPI & REST APIs</span><span class="skill-level">Advanced</span></li>
-              <li><span>Node.js & Express.js</span><span class="skill-level">Proficient</span></li>
-              <li><span>Streamlit & WebSockets</span><span class="skill-level">Advanced</span></li>
-              <li><span>PostgreSQL, MongoDB, Redis</span><span class="skill-level">Proficient</span></li>
-              <li><span>Docker & Git Workflows</span><span class="skill-level">Proficient</span></li>
-            </ul>
-          </div>
+        <div class="skill-box-clean">
+          <h3>🗄️ Databases & Tools</h3>
+          <ul class="skill-items">
+            <li><span>PostgreSQL & MongoDB</span> <span class="skill-tag-level">Proficient</span></li>
+            <li><span>Redis & Socket.io</span> <span class="skill-tag-level">Proficient</span></li>
+            <li><span>Docker & Git</span> <span class="skill-tag-level">Proficient</span></li>
+            <li><span>Figma & Canva</span> <span class="skill-tag-level">Proficient</span></li>
+          </ul>
         </div>
 
-        <!-- Category 5: Automation & No-Code -->
-        <div class="skill-category-card glass card-3d">
-          <div class="card-inner">
-            <div class="skill-icon">🤖</div>
-            <h3>Automation & CMS</h3>
-            <ul class="skill-list">
-              <li><span>Automation Anywhere (Advanced RPA)</span><span class="skill-level">Certified</span></li>
-              <li><span>Bot Design & Orchestration</span><span class="skill-level">Certified</span></li>
-              <li><span>WordPress & Elementor</span><span class="skill-level">Learning</span></li>
-              <li><span>Vercel CI/CD Deployment</span><span class="skill-level">Applied</span></li>
-              <li><span>Socket.io Live Systems</span><span class="skill-level">Proficient</span></li>
-            </ul>
-          </div>
+        <div class="skill-box-clean">
+          <h3>🤖 Enterprise Automation</h3>
+          <ul class="skill-items">
+            <li><span>Automation Anywhere (Advanced RPA)</span> <span class="skill-tag-level">Certified</span></li>
+            <li><span>RPA Bot Orchestration</span> <span class="skill-tag-level">Certified</span></li>
+            <li><span>Vercel CI/CD Deployment</span> <span class="skill-tag-level">Applied</span></li>
+          </ul>
         </div>
 
       </div>
     </section>
 
     <!-- Achievements & Certifications -->
-    <section id="achievements" class="section fade-in">
-      <div class="section-header">
-        <span class="section-subtitle">CREDENTIALS & HONORS</span>
-        <h2 class="section-title">Certifications & Achievements</h2>
+    <section id="achievements" class="section">
+      <div class="section-head">
+        <span class="section-label">HONORS & CERTIFICATIONS</span>
+        <h2 class="section-heading">Certifications & Achievements</h2>
       </div>
 
-      <div class="achievements-grid">
+      <div class="achievements-grid-clean">
         
-        <div class="achievement-card glass card-3d">
-          <div class="card-inner">
-            <div class="achievement-badge-icon">🏅</div>
-            <div class="achievement-details">
-              <h3>Automation Anywhere — Advanced Developer Certification</h3>
-              <div class="achievement-meta">Credential ID: AAADVC2024A360 | Certified May 2026</div>
-              <p>Certified Advanced Automation Professional covering RPA bot design, multi-bot orchestration, and enterprise workflow automation.</p>
-            </div>
+        <div class="achievement-box-clean">
+          <div class="achievement-icon">🎖️</div>
+          <div class="achievement-body">
+            <h3>Automation Anywhere — Advanced Developer Certification</h3>
+            <div class="achievement-date">Credential: AAADVC2024A360 | May 2026</div>
+            <p>Certified Advanced Automation Professional covering RPA bot design, orchestration, and enterprise workflows.</p>
           </div>
         </div>
 
-        <div class="achievement-card glass card-3d">
-          <div class="card-inner">
-            <div class="achievement-badge-icon">🟩</div>
-            <div class="achievement-details">
-              <h3>NVIDIA Deep Learning Institute — Building LLM Applications</h3>
-              <div class="achievement-meta">Completed Dec 2025 | NVIDIA DLI</div>
-              <p>Specialized training in prompt design, chain-of-thought reasoning, and production LLM deployment patterns on NVIDIA's AI stack.</p>
-            </div>
+        <div class="achievement-box-clean">
+          <div class="achievement-icon">🟩</div>
+          <div class="achievement-body">
+            <h3>NVIDIA Deep Learning Institute — Building LLM Applications</h3>
+            <div class="achievement-date">Completed Dec 2025 | NVIDIA DLI</div>
+            <p>Prompt engineering, chain-of-thought reasoning, and production LLM deployment patterns on NVIDIA stack.</p>
           </div>
         </div>
 
-        <div class="achievement-card glass card-3d">
-          <div class="card-inner">
-            <div class="achievement-badge-icon">🌟</div>
-            <div class="achievement-details">
-              <h3>GSSoC 2026 (GirlScript Summer of Code) — Contributor</h3>
-              <div class="achievement-meta">Open Source | 2026</div>
-              <p>Selected contributor in one of India's largest open-source programs; actively committing code to real-world GitHub repositories.</p>
-            </div>
+        <div class="achievement-box-clean">
+          <div class="achievement-icon">🌟</div>
+          <div class="achievement-body">
+            <h3>GSSoC 2026 (GirlScript Summer of Code) — Contributor</h3>
+            <div class="achievement-date">Open Source Contributor | 2026</div>
+            <p>Selected contributor in one of India's largest open-source programs, committing code to real repositories.</p>
           </div>
         </div>
 
-        <div class="achievement-card glass card-3d">
-          <div class="card-inner">
-            <div class="achievement-badge-icon">🥈</div>
-            <div class="achievement-details">
-              <h3>2nd Place — KLH Internal Hackathon</h3>
-              <div class="achievement-meta">KL University | 2024</div>
-              <p>Ranked 2nd out of 30+ competing teams; independently conceptualized, architected, and pitched a functional software prototype in 24 hours.</p>
-            </div>
+        <div class="achievement-box-clean">
+          <div class="achievement-icon">🥈</div>
+          <div class="achievement-body">
+            <h3>2nd Place — KLH Internal Hackathon</h3>
+            <div class="achievement-date">KL University | 2024</div>
+            <p>Ranked 2nd out of 30+ teams; conceptualized, built, and pitched a working prototype in 24 hours.</p>
           </div>
         </div>
 
-        <div class="achievement-card glass card-3d">
-          <div class="card-inner">
-            <div class="achievement-badge-icon">🎗️</div>
-            <div class="achievement-details">
-              <h3>NCC — 'A' & 'B' Certificate Holder (National Cadet Corps)</h3>
-              <div class="achievement-meta">Active Cadet | 2023 – 2024</div>
-              <p>Completed 2-year structured training program; developed strong leadership, squad discipline, and team coordination skills.</p>
-            </div>
+        <div class="achievement-box-clean">
+          <div class="achievement-icon">🎗️</div>
+          <div class="achievement-body">
+            <h3>National Cadet Corps (NCC) — 'A' & 'B' Certificates</h3>
+            <div class="achievement-date">Active Cadet | 2023 – 2024</div>
+            <p>2-year structured training program focused on leadership, squad coordination, and civic service.</p>
           </div>
         </div>
 
@@ -496,118 +413,107 @@
     </section>
 
     <!-- Education Section -->
-    <section id="education" class="section fade-in">
-      <div class="section-header">
-        <span class="section-subtitle">ACADEMIC JOURNEY</span>
-        <h2 class="section-title">Education & Coursework</h2>
+    <section id="education" class="section">
+      <div class="section-head">
+        <span class="section-label">ACADEMICS</span>
+        <h2 class="section-heading">Education</h2>
       </div>
 
-      <div class="education-container glass card-3d">
-        <div class="card-inner">
-          <div class="timeline">
-            
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <div class="timeline-period">2024 – 2028 (2nd Year of 4)</div>
-                <h3 class="timeline-title">B.Tech in Computer Science & Engineering</h3>
-                <div class="timeline-institution">KL University (KLH) — Hyderabad, India</div>
-                <div class="timeline-grade">CGPA: <strong>9.0 / 10.0</strong></div>
-              </div>
-            </div>
-
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <div class="timeline-period">2022 – 2024</div>
-                <h3 class="timeline-title">Intermediate Education (MPC)</h3>
-                <div class="timeline-institution">Narayana Junior College — Hyderabad</div>
-                <div class="timeline-grade">Score: <strong>93%</strong></div>
-              </div>
-            </div>
-
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <div class="timeline-period">Completed 2022</div>
-                <h3 class="timeline-title">Secondary Schooling</h3>
-                <div class="timeline-institution">The Hyderabad Public School</div>
-                <div class="timeline-grade">Score: <strong>85%</strong></div>
-              </div>
-            </div>
-
+      <div class="education-box-clean">
+        <div class="timeline-clean">
+          
+          <div class="timeline-node">
+            <div class="timeline-dot-clean"></div>
+            <div class="timeline-year">2024 – 2028 (2nd Year of 4)</div>
+            <div class="timeline-degree">B.Tech in Computer Science & Engineering</div>
+            <div class="timeline-school">KL University (KLH) — Hyderabad, India</div>
+            <div class="timeline-score">CGPA: <strong>9.0 / 10.0</strong></div>
           </div>
 
-          <div class="coursework-box">
-            <h4>Relevant Computer Science Coursework</h4>
-            <div class="course-tags">
-              <span>Operating Systems</span>
-              <span>Database Management Systems (DBMS)</span>
-              <span>Data Structures & Algorithms (DSA)</span>
-              <span>Computer Networks</span>
-              <span>Software Engineering</span>
-              <span>Discrete Mathematics</span>
-            </div>
+          <div class="timeline-node">
+            <div class="timeline-dot-clean"></div>
+            <div class="timeline-year">2022 – 2024</div>
+            <div class="timeline-degree">Intermediate Education (MPC)</div>
+            <div class="timeline-school">Narayana Junior College — Hyderabad</div>
+            <div class="timeline-score">Score: <strong>93%</strong></div>
+          </div>
+
+          <div class="timeline-node">
+            <div class="timeline-dot-clean"></div>
+            <div class="timeline-year">Completed 2022</div>
+            <div class="timeline-degree">Secondary Schooling</div>
+            <div class="timeline-school">The Hyderabad Public School</div>
+            <div class="timeline-score">Score: <strong>85%</strong></div>
+          </div>
+
+        </div>
+
+        <div class="coursework-clean">
+          <h4>Relevant Computer Science Coursework</h4>
+          <div class="course-pills">
+            <span>Operating Systems</span>
+            <span>Database Management Systems (DBMS)</span>
+            <span>Data Structures & Algorithms (DSA)</span>
+            <span>Computer Networks</span>
+            <span>Software Engineering</span>
+            <span>Discrete Mathematics</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section fade-in">
-      <div class="section-header">
-        <span class="section-subtitle">GET IN TOUCH</span>
-        <h2 class="section-title">Let's Work Together</h2>
+    <section id="contact" class="section">
+      <div class="section-head">
+        <span class="section-label">GET IN TOUCH</span>
+        <h2 class="section-heading">Contact Me</h2>
       </div>
 
-      <div class="contact-container">
+      <div class="contact-grid-clean">
         
-        <div class="contact-info-side">
-          <div class="contact-card glass copy-email-btn">
-            <div class="contact-card-icon">📧</div>
-            <div class="contact-card-details">
-              <span>Send an Email (Click to copy)</span>
+        <div class="contact-cards-list">
+          <div class="contact-card-item copy-email-btn">
+            <div class="contact-icon-box">📧</div>
+            <div class="contact-text-box">
+              <span>Email Address (Click to copy)</span>
               <strong>thanvikreddy2@gmail.com</strong>
             </div>
           </div>
 
-          <a href="tel:+918790505507" class="contact-card glass">
-            <div class="contact-card-icon">📱</div>
-            <div class="contact-card-details">
-              <span>Call / Direct Phone</span>
+          <a href="tel:+918790505507" class="contact-card-item">
+            <div class="contact-icon-box">📱</div>
+            <div class="contact-text-box">
+              <span>Phone / Call</span>
               <strong>+91 8790505507</strong>
             </div>
           </a>
 
-          <div class="contact-card glass">
-            <div class="contact-card-icon">📍</div>
-            <div class="contact-card-details">
-              <span>Current Location</span>
+          <div class="contact-card-item">
+            <div class="contact-icon-box">📍</div>
+            <div class="contact-text-box">
+              <span>Location</span>
               <strong>Hyderabad, India</strong>
             </div>
           </div>
         </div>
 
-        <div class="contact-form-side glass card-3d">
-          <div class="card-inner">
-            <h3>Direct Inquiry via WhatsApp</h3>
-            <p>Send a direct message formatted straight to my phone.</p>
+        <div class="form-box-clean">
+          <h3>Send a Message via WhatsApp</h3>
+          <p>Send a direct inquiry straight to my phone.</p>
 
-            <form id="feedback-form" class="contact-form">
-              <div class="form-group">
-                <label for="senderName">Your Name / Company</label>
-                <input type="text" id="senderName" placeholder="e.g. John Doe (Recruiter @ TechCorp)" required>
-              </div>
-              <div class="form-group">
-                <label for="senderMessage">Message</label>
-                <textarea id="senderMessage" rows="4" placeholder="Hello Thanvik, we are impressed by your AI Governance work and would like to discuss an opportunity..." required></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary btn-block">
-                <span>Send via WhatsApp</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-              </button>
-            </form>
-          </div>
+          <form id="feedback-form" class="contact-form">
+            <div class="form-field">
+              <label for="senderName">Your Name / Organization</label>
+              <input type="text" id="senderName" placeholder="e.g. Recruiter / Hiring Manager" required>
+            </div>
+            <div class="form-field">
+              <label for="senderMessage">Message</label>
+              <textarea id="senderMessage" rows="4" placeholder="Hello Thanvik, I reviewed your portfolio and would like to connect regarding an internship opportunity..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">
+              <span>Send via WhatsApp</span>
+            </button>
+          </form>
         </div>
 
       </div>
@@ -616,68 +522,57 @@
 
   <!-- Footer -->
   <footer>
-    <div class="footer-container">
-      <div class="footer-brand">
-        <h3>Sama Thanvik Reddy</h3>
-        <p>Innovate, Create, Inspire. Engineering tomorrow's trustworthy AI systems.</p>
+    <div class="footer-inner">
+      <div>
+        <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.2rem;">Sama Thanvik Reddy</h3>
+        <p style="font-size: 0.85rem; color: var(--text-secondary);">Computer Science Student & Full-Stack AI Developer</p>
       </div>
 
-      <div class="footer-socials">
-        <a href="https://github.com/Thanvik931" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/sama-thanvik-reddy-127b76320/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="mailto:thanvikreddy2@gmail.com">Email</a>
+      <div style="display: flex; gap: 1.2rem;">
+        <a href="https://github.com/Thanvik931" target="_blank" rel="noopener" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">GitHub</a>
+        <a href="https://www.linkedin.com/in/sama-thanvik-reddy-127b76320/" target="_blank" rel="noopener" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">LinkedIn</a>
+        <a href="mailto:thanvikreddy2@gmail.com" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">Email</a>
       </div>
     </div>
-    <div class="footer-bottom">
+    <div class="footer-copy">
       <p>&copy; 2026 Sama Thanvik Reddy. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Resume Preview Modal -->
+  <!-- Resume Modal -->
   <div id="resume-modal" class="modal-backdrop">
-    <div class="modal-container glass">
-      <div class="modal-header">
-        <h3>📄 Sama Thanvik Reddy — Official Resume</h3>
-        <button id="close-modal-btn" class="modal-close-btn">&times;</button>
+    <div class="modal-window">
+      <div class="modal-top">
+        <h3 style="font-size: 1.1rem; font-weight: 700;">📄 Sama Thanvik Reddy — Resume</h3>
+        <button id="close-modal-btn" class="modal-close">&times;</button>
       </div>
-      <div class="modal-body">
-        <div class="resume-preview-card">
-          <div class="resume-header-preview">
-            <h2>Sama Thanvik Reddy</h2>
-            <p>thanvikreddy2@gmail.com | +91 8790505507 | Hyderabad, India</p>
-            <p><strong>GitHub:</strong> github.com/Thanvik931 | <strong>Portfolio:</strong> myproject1-omega.vercel.app</p>
-          </div>
-          <hr class="resume-divider">
-          <div class="resume-section-preview">
-            <h4>EDUCATION</h4>
-            <p><strong>KL University (KLH)</strong> — B.Tech Computer Science & Engineering (2024 – 2028)</p>
-            <p>CGPA: <strong>9.0 / 10.0</strong> | 2nd Year of 4</p>
-          </div>
-          <div class="resume-section-preview">
-            <h4>TECHNICAL SKILLS</h4>
-            <p><strong>Languages:</strong> Python, JavaScript, TypeScript, SQL, C</p>
-            <p><strong>Frontend:</strong> React 18, HTML5/CSS3, Figma, Canva, Responsive Design</p>
-            <p><strong>Frameworks:</strong> FastAPI, Node.js, Express.js, Streamlit</p>
-            <p><strong>Databases & Tools:</strong> PostgreSQL, MongoDB, Redis, Docker, Git, Socket.io</p>
-            <p><strong>AI / ML:</strong> SHAP, LIME, Fairlearn, AIF360, LLM Prompt Engineering, Explainable AI</p>
-            <p><strong>Automation:</strong> Automation Anywhere (Advanced Developer Certified)</p>
-          </div>
-          <div class="resume-section-preview">
-            <h4>FEATURED PROJECTS</h4>
-            <p><strong>NeuroCloak — AI Governance Dashboard</strong> | Aug 2024 – Present</p>
-            <p><strong>TrustLens AI — Bias Detection Platform</strong> | Jan 2025 – Present</p>
-          </div>
-          <div class="resume-section-preview">
-            <h4>CERTIFICATIONS & ACHIEVEMENTS</h4>
-            <p>• Automation Anywhere Advanced Developer Certification (AAADVC2024A360)</p>
-            <p>• NVIDIA DLI — Building LLM Applications with Prompt Engineering</p>
-            <p>• GSSoC 2026 Contributor | 2nd Place KLH Hackathon | NCC A & B Certificates</p>
-          </div>
+      <div class="modal-content">
+        <div class="resume-paper">
+          <h2 style="font-size: 1.6rem; margin-bottom: 0.2rem;">Sama Thanvik Reddy</h2>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1rem;">thanvikreddy2@gmail.com | +91 8790505507 | Hyderabad, India | github.com/Thanvik931</p>
+          <hr style="border: 0; height: 1px; background: var(--border-color); margin-bottom: 1.2rem;">
+          
+          <h4 style="color: var(--accent-blue); margin-bottom: 0.4rem; font-size: 0.95rem;">EDUCATION</h4>
+          <p style="font-size: 0.9rem; margin-bottom: 1rem;"><strong>KL University (KLH)</strong> — B.Tech Computer Science & Engineering (2024 – 2028)<br>CGPA: <strong>9.0 / 10.0</strong> | 2nd Year of 4</p>
+          
+          <h4 style="color: var(--accent-blue); margin-bottom: 0.4rem; font-size: 0.95rem;">TECHNICAL SKILLS</h4>
+          <p style="font-size: 0.88rem; margin-bottom: 0.3rem;">• <strong>Languages:</strong> Python, JavaScript, TypeScript, SQL, C</p>
+          <p style="font-size: 0.88rem; margin-bottom: 0.3rem;">• <strong>Frontend:</strong> React 18, HTML5/CSS3, Figma, Canva, Responsive Design</p>
+          <p style="font-size: 0.88rem; margin-bottom: 0.3rem;">• <strong>Backend & Databases:</strong> FastAPI, Node.js, Express.js, Streamlit, PostgreSQL, MongoDB, Redis, Docker</p>
+          <p style="font-size: 0.88rem; margin-bottom: 0.3rem;">• <strong>AI / ML:</strong> SHAP, LIME, Fairlearn, AIF360, LLM Prompt Engineering, Explainable AI</p>
+          <p style="font-size: 0.88rem; margin-bottom: 1rem;">• <strong>Automation:</strong> Automation Anywhere (Advanced Developer Certified)</p>
+
+          <h4 style="color: var(--accent-blue); margin-bottom: 0.4rem; font-size: 0.95rem;">PROJECTS</h4>
+          <p style="font-size: 0.88rem; margin-bottom: 0.3rem;">• <strong>NeuroCloak — AI Governance Dashboard:</strong> React 18, WebSockets, Docker, Cognitive AI metrics.</p>
+          <p style="font-size: 0.88rem; margin-bottom: 1rem;">• <strong>TrustLens AI — Bias Detection Platform:</strong> FastAPI, Streamlit, Celery, SHAP & LIME explainability.</p>
+
+          <h4 style="color: var(--accent-blue); margin-bottom: 0.4rem; font-size: 0.95rem;">CERTIFICATIONS & ACHIEVEMENTS</h4>
+          <p style="font-size: 0.88rem;">• Automation Anywhere Advanced Developer Certification (AAADVC2024A360)<br>• NVIDIA DLI Building LLM Applications<br>• GSSoC 2026 Contributor | 2nd Place KLH Hackathon | NCC A & B Certificates</p>
         </div>
       </div>
-      <div class="modal-footer">
-        <button id="modal-download-btn" class="btn btn-primary">
-          <span>📥 Print / Download Resume</span>
+      <div class="modal-bottom">
+        <button id="modal-download-btn" class="btn btn-primary btn-sm">
+          <span>Print / Download Resume</span>
         </button>
       </div>
     </div>
