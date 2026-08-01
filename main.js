@@ -141,7 +141,7 @@ async function fetchGitHubProjects() {
     const excluded = ['neurocloak', 'stepup-for-ai', 'stepupforai'];
     const filteredRepos = repos
       .filter(repo => !repo.fork && !excluded.includes(repo.name.toLowerCase()))
-      .slice(0, 6);
+      .slice(0, 3);
 
     container.innerHTML = '';
 
