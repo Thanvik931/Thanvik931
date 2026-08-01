@@ -1,316 +1,164 @@
 import './style.css';
 import * as THREE from 'three';
 
-// --- Theme Toggle Logic ---
+// --- Toast Notification System ---
+function showToast(message, icon = '✨') {
+  const container = document.getElementById('toast-container');
+  if (!container) return;
+
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.innerHTML = `<span>${icon}</span> <span>${message}</span>`;
+
+  container.appendChild(toast);
+
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateX(100%)';
+    toast.style.transition = 'all 0.3s ease';
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
+}
+
+// Copy Email Logic
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.copy-email-btn');
+  if (btn) {
+    const email = 'thanvikreddy2@gmail.com';
+    navigator.clipboard.writeText(email).then(() => {
+      showToast('Email address copied to clipboard!', '📧');
+    }).catch(() => {
+      showToast('Failed to copy email.', '❌');
+    });
+  }
+});
+
+// --- Theme Toggle Logic & Three.js Sync ---
 const themeToggleBtn = document.getElementById('theme-toggle');
 const sunIcon = document.querySelector('.sun-icon');
 const moonIcon = document.querySelector('.moon-icon');
 const body = document.body;
-const ghGraph = document.getElementById('gh-graph');
 
-function updateGraphTheme(isLightMode) {
-  if (ghGraph) {
-    ghGraph.src = isLightMode
-      ? "https://ghchart.rshah.org/4f46e5/Thanvik931"
-      : "https://ghchart.rshah.org/6366f1/Thanvik931";
-  }
-}
+let isLightMode = localStorage.getItem('theme') === 'light';
 
-// Check local storage for theme preference
-const currentTheme = localStorage.getItem('theme');
-if (currentTheme === 'light') {
-  body.setAttribute('data-theme', 'light');
-  sunIcon.style.display = 'none';
-  moonIcon.style.display = 'block';
-  updateGraphTheme(true);
-}
-
-themeToggleBtn.addEventListener('click', () => {
-  if (body.getAttribute('data-theme') === 'light') {
-    // Switch to dark
-    body.removeAttribute('data-theme');
-    sunIcon.style.display = 'block';
-    moonIcon.style.display = 'none';
-    localStorage.setItem('theme', 'dark');
-    updateThreeColors(false);
-    updateGraphTheme(false);
-  } else {
-    // Switch to light
+function applyTheme(light) {
+  if (light) {
     body.setAttribute('data-theme', 'light');
-    sunIcon.style.display = 'none';
-    moonIcon.style.display = 'block';
-    localStorage.setItem('theme', 'light');
-    updateThreeColors(true);
-    updateGraphTheme(true);
-  }
-});
-
-// --- Dynamic GitHub Projects Fetch ---
-async function fetchGitHubProjects() {
-  const container = document.getElementById('github-projects');
-  if (!container) return;
-
-  try {
-    const response = await fetch('https://api.github.com/users/Thanvik931/repos?sort=updated');
-    if (!response.ok) throw new Error('Failed to fetch repos');
-
-    let repos = await response.json();
-
-    // Explicitly grab unilink if it exists
-    const unilink = repos.find(repo => repo.name.toLowerCase() === 'unilink');
-
-    // Filter out forks for the rest, and pick top 3 to make room for unilink
-    let mainRepos = repos.filter(repo => !repo.fork && repo.name.toLowerCase() !== 'unilink').slice(0, 3);
-
-    // Combine them
-    if (unilink) {
-      mainRepos.push(unilink);
-    } else {
-      // If unilink wasn't found in the first page, just use the top 4
-      mainRepos = repos.filter(repo => !repo.fork).slice(0, 4);
-    }
-
-    repos = mainRepos;
-
-    container.innerHTML = ''; // clear loading text
-
-    if (repos.length === 0) {
-      container.innerHTML = '<p class="text-center" style="grid-column: 1 / -1;">No projects found.</p>';
-      return;
-    }
-
-    repos.forEach(repo => {
-      // Create tags from language if available
-      const langTag = repo.language ? `<span class="tag">${repo.language}</span>` : '';
-
-      // Use official GitHub Open Graph preview generator for a stunning, authentic project image
-      const fallbackImg = `https://opengraph.githubassets.com/1/Thanvik931/${repo.name}`;
-
-      const cardHTML = `
-        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="card card-3d">
-          <div class="card-inner">
-            <div class="card-image">
-              <img src="${fallbackImg}" alt="${repo.name} Preview">
-            </div>
-            <div class="card-content">
-              <h3>${repo.name}</h3>
-              <p>${repo.description ? repo.description.substring(0, 100) + '...' : 'View repository on GitHub for more details.'}</p>
-              <div class="tags">
-                ${langTag}
-              </div>
-            </div>
-          </div>
-        </a>
-      `;
-      container.innerHTML += cardHTML;
-    });
-
-    init3DCards(); // initialize hover logic after rendering
-
-  } catch (error) {
-    console.error('Error fetching projects:', error);
-    container.innerHTML = '<p class="text-center text-muted" style="grid-column: 1 / -1;">Failed to load projects from GitHub. Please try again later.</p>';
-  }
-}
-
-// --- Interactive 3D Card Hover Effects ---
-function init3DCards() {
-  // Select both project cards and ALL glass containers for full 3D layout effect
-  const cards = document.querySelectorAll('.card-inner, .glass');
-
-  cards.forEach(card => {
-    card.addEventListener('mousemove', e => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      // Slightly softer rotation for larger panels like glass containers
-      const rotateX = ((y - centerY) / centerY) * -5;
-      const rotateY = ((x - centerX) / centerX) * 5;
-
-      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-      card.style.transform = 'rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-    });
-
-    card.addEventListener('mouseenter', () => {
-      card.style.transition = 'transform 0.1s ease-out';
-    });
-  });
-}
-
-// Call the fetch function on load
-fetchGitHubProjects();
-
-// Interactive 3D Hero Photo Effect
-const heroPhoto = document.querySelector('.profile-photo');
-const heroContainer = document.querySelector('.ui-3d');
-
-if (heroContainer && heroPhoto) {
-  heroContainer.addEventListener('mousemove', e => {
-    const rect = heroContainer.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateX = ((y - centerY) / centerY) * -15;
-    const rotateY = ((x - centerX) / centerX) * 15;
-
-    heroPhoto.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
-  });
-
-  heroContainer.addEventListener('mouseleave', () => {
-    heroPhoto.style.transition = 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-    heroPhoto.style.transform = 'rotateX(0deg) rotateY(0deg)';
-  });
-
-  heroContainer.addEventListener('mouseenter', () => {
-    heroPhoto.style.transition = 'none';
-  });
-}
-
-
-// --- Three.js Background Animation ---
-const canvas = document.querySelector('#bg-canvas');
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({
-  canvas: canvas,
-  alpha: true,
-  antialias: true
-});
-
-renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(window.innerWidth, window.innerHeight);
-camera.position.setZ(30);
-
-// Torus Knot
-const torusGeometry = new THREE.TorusKnotGeometry(12, 3.5, 120, 20);
-const torusMaterial = new THREE.MeshStandardMaterial({
-  color: 0x6366f1,
-  wireframe: true,
-  transparent: true,
-  opacity: 0.1
-});
-const torusKnot = new THREE.Mesh(torusGeometry, torusMaterial);
-scene.add(torusKnot);
-
-// Particles
-const geometry = new THREE.BufferGeometry();
-const numParticles = 1200;
-const posArray = new Float32Array(numParticles * 3);
-
-for (let i = 0; i < numParticles * 3; i++) {
-  posArray[i] = (Math.random() - 0.5) * 120;
-}
-geometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-
-const particleMaterial = new THREE.PointsMaterial({
-  size: 0.12,
-  color: 0xec4899,
-  transparent: true,
-  opacity: 0.6
-});
-const particlesMesh = new THREE.Points(geometry, particleMaterial);
-scene.add(particlesMesh);
-
-// Lighting
-const pointLight = new THREE.PointLight(0xffffff);
-pointLight.position.set(5, 5, 5);
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-scene.add(pointLight, ambientLight);
-
-// Update colors based on theme
-function updateThreeColors(isLightMode) {
-  if (isLightMode) {
-    torusMaterial.color.setHex(0x4f46e5);
-    torusMaterial.opacity = 0.08;
-    particleMaterial.color.setHex(0xdb2777);
+    if (sunIcon) sunIcon.style.display = 'none';
+    if (moonIcon) moonIcon.style.display = 'block';
   } else {
-    torusMaterial.color.setHex(0x6366f1);
-    torusMaterial.opacity = 0.1;
-    particleMaterial.color.setHex(0xec4899);
+    body.removeAttribute('data-theme');
+    if (sunIcon) sunIcon.style.display = 'block';
+    if (moonIcon) moonIcon.style.display = 'none';
   }
-}
-if (currentTheme === 'light') updateThreeColors(true);
-
-// Animation Loop
-const clock = new THREE.Clock();
-
-function animate() {
-  requestAnimationFrame(animate);
-  const elapsedTime = clock.getElapsedTime();
-
-  torusKnot.rotation.x += 0.003;
-  torusKnot.rotation.y += 0.003;
-  torusKnot.rotation.z += 0.003;
-
-  particlesMesh.rotation.y = elapsedTime * 0.03;
-  particlesMesh.rotation.x = Math.sin(elapsedTime * 0.2) * 0.1;
-
-  // Gentle float
-  torusKnot.position.y = Math.sin(elapsedTime * 0.8) * 2;
-
-  renderer.render(scene, camera);
+  updateThreeColors(light);
 }
 
-animate();
-
-// Handle Resize
-window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-});
-
-// Scroll Fade-in Animation Logic
-const observerOptions = {
-  root: null,
-  rootMargin: '0px',
-  threshold: 0.15
-};
-
-const fadeObserver = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      // Optional: Stop observing once faded in
-      // observer.unobserve(entry.target);
-    }
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener('click', () => {
+    isLightMode = !isLightMode;
+    localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
+    applyTheme(isLightMode);
+    showToast(`Switched to ${isLightMode ? 'Light' : 'Dark'} theme`, isLightMode ? '☀️' : '🌙');
   });
-}, observerOptions);
+}
+
+// Initialize theme on load
+applyTheme(isLightMode);
+
+// --- Dynamic Typing Effect in Hero ---
+const typingTextElement = document.getElementById('typing-text');
+const roles = [
+  'AI Governance & Systems Engineer',
+  'Full-Stack Developer (React 18 & FastAPI)',
+  'Explainable AI Specialist (SHAP / LIME)',
+  'Automation Anywhere Certified RPA Developer',
+  'NVIDIA DLI Prompt Engineering Specialist',
+  'GSSoC \'26 Open-Source Contributor'
+];
+
+let roleIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let typingDelay = 100;
+
+function typeEffect() {
+  if (!typingTextElement) return;
+
+  const currentRole = roles[roleIndex];
+
+  if (isDeleting) {
+    typingTextElement.textContent = currentRole.substring(0, charIndex - 1);
+    charIndex--;
+    typingDelay = 40;
+  } else {
+    typingTextElement.textContent = currentRole.substring(0, charIndex + 1);
+    charIndex++;
+    typingDelay = 90;
+  }
+
+  if (!isDeleting && charIndex === currentRole.length) {
+    typingDelay = 2200; // Pause at end of word
+    isDeleting = true;
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    roleIndex = (roleIndex + 1) % roles.length;
+    typingDelay = 400; // Pause before starting next word
+  }
+
+  setTimeout(typeEffect, typingDelay);
+}
 
 document.addEventListener('DOMContentLoaded', () => {
-  const fadeElements = document.querySelectorAll('.fade-in');
-  fadeElements.forEach(el => fadeObserver.observe(el));
+  typeEffect();
 });
 
-// --- About Me Expansion Logic ---
-const aboutCard = document.getElementById('about-card');
-const aboutExtra = document.getElementById('about-extra');
-const aboutReadMore = document.getElementById('about-read-more');
+// --- Resume Modal Logic ---
+const resumeModal = document.getElementById('resume-modal');
+const openModalBtns = [
+  document.getElementById('resume-modal-btn'),
+  document.getElementById('hero-resume-btn')
+];
+const closeModalBtn = document.getElementById('close-modal-btn');
+const modalDownloadBtn = document.getElementById('modal-download-btn');
 
-if (aboutCard && aboutExtra && aboutReadMore) {
-  let isExpanded = false;
-  aboutCard.addEventListener('click', () => {
-    isExpanded = !isExpanded;
-    if (isExpanded) {
-      aboutExtra.classList.add('visible');
-      aboutReadMore.innerHTML = 'Show less &uarr;';
-    } else {
-      aboutExtra.classList.remove('visible');
-      aboutReadMore.innerHTML = 'Click to read more &darr;';
-    }
+function openResumeModal() {
+  if (resumeModal) {
+    resumeModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeResumeModal() {
+  if (resumeModal) {
+    resumeModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+openModalBtns.forEach(btn => {
+  if (btn) btn.addEventListener('click', openResumeModal);
+});
+
+if (closeModalBtn) closeModalBtn.addEventListener('click', closeResumeModal);
+
+if (resumeModal) {
+  resumeModal.addEventListener('click', (e) => {
+    if (e.target === resumeModal) closeResumeModal();
   });
 }
 
-// --- Feedback Form to WhatsApp Logic ---
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeResumeModal();
+});
+
+if (modalDownloadBtn) {
+  modalDownloadBtn.addEventListener('click', () => {
+    window.print();
+  });
+}
+
+// --- Contact Form to WhatsApp ---
 const feedbackForm = document.getElementById('feedback-form');
 if (feedbackForm) {
   feedbackForm.addEventListener('submit', (e) => {
@@ -319,44 +167,107 @@ if (feedbackForm) {
     const name = document.getElementById('senderName').value;
     const message = document.getElementById('senderMessage').value;
 
-    // Construct the WhatsApp message payload
-    const textParams = `*Inquiry from Portfolio*\n\n*Name/Org:* ${name}\n\n*Message:*\n${message}`;
-    const encodedText = encodeURIComponent(textParams);
+    const formattedText = `*Inquiry from Portfolio*\n\n*From:* ${name}\n\n*Message:*\n${message}`;
+    const encodedText = encodeURIComponent(formattedText);
 
-    // Open WhatsApp with the prefilled message
     window.open(`https://wa.me/918790505507?text=${encodedText}`, '_blank');
-
-    // Reset form after submission
+    showToast('Redirecting to WhatsApp...', '💬');
     feedbackForm.reset();
   });
 }
 
-// Move camera on scroll
-function moveCamera() {
-  const t = document.body.getBoundingClientRect().top;
-  camera.position.z = t * -0.01 + 30;
-  camera.position.y = t * 0.001;
-  camera.rotation.y = t * -0.0002;
-}
-document.body.onscroll = moveCamera;
-moveCamera();
+// --- GitHub Repos API Fetch ---
+async function fetchGitHubProjects() {
+  const container = document.getElementById('github-projects');
+  if (!container) return;
 
-// Smooth scrolling for navigation
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
+  try {
+    const response = await fetch('https://api.github.com/users/Thanvik931/repos?sort=updated&per_page=10');
+    if (!response.ok) throw new Error('GitHub API request failed');
+
+    const repos = await response.json();
+
+    // Filter out forks and main featured projects already in highlight section
+    const excluded = ['neurocloak', 'nlp---trustlens'];
+    const filteredRepos = repos
+      .filter(repo => !repo.fork && !excluded.includes(repo.name.toLowerCase()))
+      .slice(0, 6);
+
+    container.innerHTML = '';
+
+    if (filteredRepos.length === 0) {
+      container.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; color: var(--text-muted);">Explore all repositories on GitHub.</p>';
+      return;
     }
-  });
-});
 
-// --- Custom 3D Cursor Logic ---
+    filteredRepos.forEach(repo => {
+      const card = document.createElement('a');
+      card.href = repo.html_url;
+      card.target = '_blank';
+      card.rel = 'noopener';
+      card.className = 'repo-card glass card-3d';
+
+      card.innerHTML = `
+        <div>
+          <h4 class="repo-card-title">${repo.name}</h4>
+          <p class="repo-card-desc">${repo.description || 'GitHub project repository by Thanvik Reddy.'}</p>
+        </div>
+        <div class="repo-card-footer">
+          <span>${repo.language || 'Code'}</span>
+          <span>⭐ ${repo.stargazers_count} | 🍴 ${repo.forks_count}</span>
+        </div>
+      `;
+
+      container.appendChild(card);
+    });
+
+    init3DTilt();
+
+  } catch (error) {
+    console.error('Error fetching GitHub repos:', error);
+    container.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; color: var(--text-muted);">View all projects on <a href="https://github.com/Thanvik931" target="_blank" style="color: var(--cyan);">GitHub profile</a>.</p>';
+  }
+}
+
+fetchGitHubProjects();
+
+// --- Interactive 3D Tilt Effect ---
+function init3DTilt() {
+  const tiltElements = document.querySelectorAll('.card-3d, .profile-card-3d');
+
+  tiltElements.forEach(el => {
+    el.addEventListener('mousemove', (e) => {
+      const rect = el.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateX = ((y - centerY) / centerY) * -8;
+      const rotateY = ((x - centerX) / centerX) * 8;
+
+      el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    });
+
+    el.addEventListener('mouseleave', () => {
+      el.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+      el.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+    });
+
+    el.addEventListener('mouseenter', () => {
+      el.style.transition = 'transform 0.1s ease-out';
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', init3DTilt);
+
+// --- Custom Glow Cursor Physics ---
 const cursor = document.getElementById('custom-cursor');
 const cursorTrail = document.getElementById('cursor-trail');
 
-if (cursor && cursorTrail && !window.matchMedia("(pointer: coarse)").matches) {
+if (cursor && cursorTrail && window.matchMedia('(pointer: fine)').matches) {
   let mouseX = 0, mouseY = 0;
   let trailX = 0, trailY = 0;
 
@@ -364,28 +275,129 @@ if (cursor && cursorTrail && !window.matchMedia("(pointer: coarse)").matches) {
     mouseX = e.clientX;
     mouseY = e.clientY;
 
-    // Immediate cursor update
     cursor.style.left = `${mouseX}px`;
     cursor.style.top = `${mouseY}px`;
   });
 
-  // Smooth trail animation
-  function animateTrail() {
-    // Lerp (Linear Interpolation) for smooth trailing
+  function renderTrail() {
     trailX += (mouseX - trailX) * 0.15;
     trailY += (mouseY - trailY) * 0.15;
 
     cursorTrail.style.left = `${trailX}px`;
     cursorTrail.style.top = `${trailY}px`;
 
-    requestAnimationFrame(animateTrail);
+    requestAnimationFrame(renderTrail);
   }
-  animateTrail();
+  renderTrail();
 
-  // Add hover effects for links and buttons
-  const interactables = document.querySelectorAll('a, button, .card-3d, .theme-btn');
-  interactables.forEach(el => {
-    el.addEventListener('mouseenter', () => document.body.classList.add('hovering-link'));
-    el.addEventListener('mouseleave', () => document.body.classList.remove('hovering-link'));
+  document.querySelectorAll('a, button, .card-3d').forEach(el => {
+    el.addEventListener('mouseenter', () => body.classList.add('hovering-link'));
+    el.addEventListener('mouseleave', () => body.classList.remove('hovering-link'));
   });
 }
+
+// --- Three.js Background Animation ---
+const canvas = document.querySelector('#bg-canvas');
+let scene, camera, renderer, particlesMesh, shapeMesh;
+
+if (canvas) {
+  scene = new THREE.Scene();
+  camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  camera.position.setZ(30);
+
+  // Geometric Shape (Icosahedron Wireframe)
+  const shapeGeo = new THREE.IcosahedronGeometry(14, 2);
+  const shapeMat = new THREE.MeshStandardMaterial({
+    color: 0x6366f1,
+    wireframe: true,
+    transparent: true,
+    opacity: 0.12
+  });
+  shapeMesh = new THREE.Mesh(shapeGeo, shapeMat);
+  scene.add(shapeMesh);
+
+  // Particle System
+  const particleGeo = new THREE.BufferGeometry();
+  const count = 1200;
+  const positions = new Float32Array(count * 3);
+
+  for (let i = 0; i < count * 3; i++) {
+    positions[i] = (Math.random() - 0.5) * 110;
+  }
+  particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+  const particleMat = new THREE.PointsMaterial({
+    size: 0.12,
+    color: 0x06b6d4,
+    transparent: true,
+    opacity: 0.6
+  });
+  particlesMesh = new THREE.Points(particleGeo, particleMat);
+  scene.add(particlesMesh);
+
+  // Lights
+  const pLight = new THREE.PointLight(0xffffff, 1);
+  pLight.position.set(20, 20, 20);
+  const aLight = new THREE.AmbientLight(0xffffff, 0.5);
+  scene.add(pLight, aLight);
+
+  // Animation Loop
+  const clock = new THREE.Clock();
+
+  function animateThree() {
+    requestAnimationFrame(animateThree);
+    const elapsedTime = clock.getElapsedTime();
+
+    if (shapeMesh) {
+      shapeMesh.rotation.x = elapsedTime * 0.05;
+      shapeMesh.rotation.y = elapsedTime * 0.08;
+      shapeMesh.position.y = Math.sin(elapsedTime * 0.8) * 1.5;
+    }
+
+    if (particlesMesh) {
+      particlesMesh.rotation.y = elapsedTime * 0.02;
+    }
+
+    renderer.render(scene, camera);
+  }
+
+  animateThree();
+
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+}
+
+function updateThreeColors(lightMode) {
+  if (!shapeMesh || !particlesMesh) return;
+  if (lightMode) {
+    shapeMesh.material.color.setHex(0x4f46e5);
+    shapeMesh.material.opacity = 0.08;
+    particlesMesh.material.color.setHex(0x0284c7);
+  } else {
+    shapeMesh.material.color.setHex(0x6366f1);
+    shapeMesh.material.opacity = 0.12;
+    particlesMesh.material.color.setHex(0x06b6d4);
+  }
+}
+
+// Scroll camera shift
+window.addEventListener('scroll', () => {
+  if (camera) {
+    const scrollY = window.scrollY;
+    camera.position.y = -scrollY * 0.01;
+  }
+  
+  // Navbar scroll background shift
+  const nav = document.getElementById('navbar');
+  if (nav) {
+    if (window.scrollY > 50) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  }
+});
